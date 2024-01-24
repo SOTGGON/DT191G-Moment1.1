@@ -1,4 +1,37 @@
 ﻿@page
 @model MyApp.Namespace.RazorModel
 @{
+    ViewData["Title"] = "Razor";
+
+    DateTime currentDateTime = DateTime.Now;
+
+    string weekdayText = currentDateTime.DayOfWeek == DayOfWeek.Monday ? "Idag är det måndag" : "Idag är det inte måndag";
+
+    List<string> courseList = new List<string> {
+    "DT057g, Webbutveckling I",
+    "DT093g, Webbutveckling II",
+    "DT173g, Webbutveckling III"
+    };
 }
+
+<div class="text-left">
+    <h2>Razor</h2>
+
+    <h4>Information</h4>
+
+    <div class="date">
+        <p><strong>Dagens datum är: </strong><span class="dateAndTime">@currentDateTime.ToString("yyyy-MM-dd HH:mm:ss")</span></p>
+    </div>
+    
+    <p><span class="weekday">@weekdayText</span></p>
+
+    <div>
+        <h4>Kuser jag läst</h4>
+
+        <ul class="courselist">
+            @foreach (var course in courseList) {
+                <li>@course</li>
+            }
+        </ul>
+    </div>
+</div>
