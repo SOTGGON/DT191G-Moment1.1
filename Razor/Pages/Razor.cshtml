@@ -5,12 +5,23 @@
 
     DateTime currentDateTime = DateTime.Now;
 
-    string weekdayText = currentDateTime.DayOfWeek == DayOfWeek.Monday ? "Idag är det måndag" : "Idag är det inte måndag";
+@*     string weekdayText = currentDateTime.DayOfWeek == DayOfWeek.Monday ? "Idag är det måndag" : "Idag är det inte måndag";
+ *@
+
+    string ifMonday;
+    if (currentDateTime.DayOfWeek == DayOfWeek.Monday)
+    {
+        ifMonday = "Idag är det måndag";
+    }
+    else
+    {
+        ifMonday = "Idag är det inte måndag";
+    }
 
     List<string> courseList = new List<string> {
-    "DT057g, Webbutveckling I",
-    "DT093g, Webbutveckling II",
-    "DT173g, Webbutveckling III"
+        "DT057g, Webbutveckling I",
+        "DT093g, Webbutveckling II",
+        "DT173g, Webbutveckling III"
     };
 }
 
@@ -23,7 +34,7 @@
         <p><strong>Dagens datum är: </strong><span class="dateAndTime">@currentDateTime.ToString("yyyy-MM-dd HH:mm:ss")</span></p>
     </div>
     
-    <p><span class="weekday">@weekdayText</span></p>
+    <p><span class="weekday">@ifMonday</span></p>
 
     <div>
         <h4>Kuser jag läst</h4>
